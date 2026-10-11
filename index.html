@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lynzy Anne Revilla | Data Analytics Portfolio</title>
+<meta name="description" content="Portfolio of Lynzy Anne Revilla, Computer Engineering graduate specializing in data analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono&family=Inter:wght@400;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+:root{
+  --desk:#e4e1d9; --paper:#f7f5f0; --tab:#ebe8dc; --kraft:#d9c9a6; --kraft-d:#c9b78f;
+  --note:#e9e6da; --ink:#2b2a28; --soft:#5b5852; --red:#b3201f; --line:#8a8677; --tape:rgba(216,201,160,.85);
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --hand:'Caveat','Segoe Print','Comic Sans MS',cursive;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'DM Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;color:var(--ink);font:400 16px/1.65 var(--sans);background-color:var(--desk);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E")}
+main{max-width:820px;margin:0 auto;padding:28px 72px 60px 20px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;margin:0}
+h2{font-size:clamp(2.4rem,6vw,3.4rem);text-align:center;margin-bottom:28px}
+p{margin:0 0 14px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* side tabs */
+.tabs{position:fixed;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;z-index:5}
+.tabs a{writing-mode:vertical-rl;font:12px var(--mono);letter-spacing:.14em;text-decoration:none;color:var(--soft);
+  padding:22px 11px;background:var(--tab);border-radius:14px 0 0 14px;box-shadow:-2px 2px 6px rgba(0,0,0,.12)}
+.tabs a.on{background:var(--paper);color:var(--ink);padding-right:18px;box-shadow:-3px 2px 8px rgba(0,0,0,.18)}
+
+/* cover */
+.cover{padding:10px 0 40px;margin-bottom:34px}
+.cover h1{font-size:clamp(4rem,15vw,8.5rem);text-align:center;letter-spacing:-.02em}
+.chips{display:flex;justify-content:space-between;margin:14px 0 46px}
+.chip{border:1px solid var(--line);border-radius:99px;padding:3px 18px;font:600 12px var(--sans)}
+.folder{position:relative;background:var(--kraft);border-radius:4px 14px 6px 6px;padding:54px 24px 40px;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.folder::before{content:"";position:absolute;left:12%;top:-22px;width:30%;height:26px;background:var(--kraft);border-radius:10px 10px 0 0}
+.label{background:#ece0c3;border:1px solid var(--line);transform:rotate(-1.5deg);max-width:520px;margin:0 auto}
+.label div{display:grid;grid-template-columns:110px 1fr;align-items:center;border-top:1px solid var(--line);padding:6px 14px}
+.label div:first-child{border-top:0}
+.label small{font:10px var(--mono);color:var(--soft);letter-spacing:.08em}
+.hw{font:600 1.55rem/1.2 var(--hand);color:var(--red)}
+
+/* sheets */
+.sheet{position:relative;background:var(--paper);border-radius:16px;padding:44px 40px 48px;margin-bottom:34px;box-shadow:0 6px 18px rgba(0,0,0,.14)}
+.tape{position:absolute;width:92px;height:26px;background:var(--tape);transform:rotate(-6deg);box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.about{display:grid;grid-template-columns:230px 1fr;gap:34px;align-items:start}
+.polaroid{position:relative;background:#fff;padding:10px 10px 44px;transform:rotate(-3deg);box-shadow:0 8px 16px rgba(0,0,0,.22);width:230px}
+.polaroid .ph{position:relative;aspect-ratio:4/5;background:#cfcabb;display:grid;place-items:center;font:5rem var(--serif);color:#f7f5f0;overflow:hidden}
+.polaroid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.polaroid .hw{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:1.4rem}
+.about h2{text-align:left;margin-bottom:16px}
+.how{list-style:none;padding:0;margin:8px 0 0}
+.how li{padding-left:22px;position:relative;margin-bottom:6px}
+.how li::before{content:"✦";position:absolute;left:0;color:var(--red);font-size:.8rem;top:2px}
+.how b{display:block;margin-bottom:6px}
+
+/* ledger */
+.ledger{margin:36px auto 0;border:1px solid var(--line);background:#efece3;box-shadow:0 4px 10px rgba(0,0,0,.1);transform:rotate(.6deg)}
+.ledger .hd{background:#2d2c2a;color:#f7f5f0;text-align:center;font:600 13px var(--sans);padding:8px}
+.nums{display:grid;grid-template-columns:repeat(4,1fr)}
+.nums div{padding:12px 10px 16px;text-align:center;border-left:1px solid var(--line)}
+.nums div:first-child{border-left:0}
+.nums small,.ledger .row small{font:10px var(--mono);color:var(--soft);display:block}
+.nums strong{font:400 2.7rem/1.1 var(--serif)}
+.ledger .row{border-top:1px solid var(--line);padding:8px 14px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+
+/* projects */
+.case{display:grid;grid-template-columns:240px 1fr;gap:30px;align-items:start;padding:28px 0;border-top:1px solid #d9d5c8}
+.case:first-of-type{border-top:0;padding-top:0}
+.note{background:var(--note);padding:22px 20px 24px;clip-path:polygon(0 2%,6% 0,14% 2%,24% 0,36% 2%,48% 0,60% 2%,72% 0,86% 2%,100% 0,100% 100%,0 100%);box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.note small{font:10px var(--mono);color:var(--soft);letter-spacing:.08em;display:block;margin-top:10px}
+.note small:first-child{margin-top:0}
+.note .hw{font-size:1.45rem;border-bottom:1px solid var(--line);padding-bottom:4px}
+.case h3{font-size:2rem;margin-bottom:10px}
+.metrics{display:flex;margin:6px 0 4px;border:1px solid var(--line);background:#efece3}
+.metrics div{flex:1;padding:8px 12px;border-left:1px solid var(--line)}
+.metrics div:first-child{border-left:0}
+.metrics small{font:10px var(--mono);color:var(--soft);display:block}
+.metrics strong{font:400 1.8rem/1.2 var(--serif)}
+.btn{display:inline-block;margin-top:6px;border:1px solid var(--ink);border-radius:99px;padding:5px 18px;font:600 13px var(--sans);text-decoration:none}
+.btn:hover{background:var(--ink);color:var(--paper)}
+
+/* contact */
+.contact{text-align:center}
+.contact h2{font-size:clamp(2.8rem,8vw,4.6rem);margin-bottom:22px}
+.contact p{max-width:520px;margin:0 auto 22px}
+.links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+.contact .sign{font:600 13px var(--sans);letter-spacing:.04em}
+.star{position:absolute;color:#d4a62a;font-size:1.6rem}
+footer{text-align:center;font:12px var(--mono);color:var(--soft)}
+
+@media (max-width:800px){
+  main{padding:64px 14px 40px}
+  .tabs{top:0;right:0;left:0;transform:none;flex-direction:row;justify-content:center;gap:4px;background:var(--desk);padding:8px 8px 0}
+  .tabs a{writing-mode:horizontal-tb;padding:9px 16px;border-radius:12px 12px 0 0;box-shadow:none}
+  .tabs a.on{padding:9px 16px}
+  .sheet{padding:34px 20px 36px}
+  .about,.case{grid-template-columns:1fr}
+  .polaroid{margin:0 auto}
+  .about h2{text-align:center}
+  .nums{grid-template-columns:repeat(2,1fr)}
+  .nums div:nth-child(3){border-left:0}
+  .nums div:nth-child(n+3){border-top:1px solid var(--line)}
+  .label div{grid-template-columns:84px 1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="tabs" aria-label="Sections">
+  <a href="#about" class="on">ABOUT</a>
+  <a href="#projects">PROJECTS</a>
+  <a href="#contact">CONTACT</a>
+</nav>
+
+<main>
+  <header class="cover">
+    <h1>Portfolio</h1>
+    <div class="chips"><span class="chip">V. 01</span><span class="chip">OCT 2026</span></div>
+    <div class="folder">
+      <div class="label">
+        <div><small>NAME</small><span class="hw">Lynzy Anne Revilla</span></div>
+        <div><small>OCCUPATION</small><span class="hw">Data Analyst</span></div>
+        <div><small>CONTACT</small><span class="hw">lynzyanne0602@gmail.com</span></div>
+        <div><small>BASED IN</small><span class="hw">Batangas, Philippines</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sheet" id="about">
+    <span class="tape" style="left:46px;top:-10px"></span>
+    <div class="about">
+      <div class="polaroid">
+        <div class="ph">LR<img src="photo.jpg" alt="Lynzy Anne Revilla" onerror="this.remove()"></div>
+        <span class="hw">This is me :)</span>
+      </div>
+      <div>
+        <h2>Hi, I'm Lynzy!</h2>
+        <p>I'm a Computer Engineering graduate specializing in data analytics. I research, build, clean, and visualize data, and I like taking on tools that real teams end up using.</p>
+        <p>I work in Python, SQL, Power BI, and Excel, and I'm finishing the IBM Data Analyst Professional Certificate. I'm happiest when a problem is vague and I get to turn it into something that works.</p>
+        <ul class="how">
+          <li><b>How I work</b></li>
+          <li>Own projects from research to delivery</li>
+          <li>Turn business needs into technical specs</li>
+          <li>Keep data accurate when moving or cleaning it</li>
+          <li>Ship working tools, then plan the next version</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div class="hd">Highlights</div>
+      <div class="nums">
+        <div><small>DEPARTMENTS USING MY DASHBOARD</small><strong>4</strong></div>
+        <div><small>SHIRTS DELIVERED</small><strong>514</strong></div>
+        <div><small>STUDENTS ON MY ROSTER</small><strong>204</strong></div>
+        <div><small>MONTHS TO BUILD MYAARCHIVE</small><strong>2</strong></div>
+      </div>
+      <div class="row"><small>TOOLS</small><span class="hw">Python, SQL, Power BI, Excel, Pandas</span></div>
+      <div class="row"><small>EDUCATION</small><span class="hw">BS Computer Engineering (Data Analytics), Batangas State University, 2026</span></div>
+    </div>
+  </section>
+
+  <section class="sheet" id="projects">
+    <span class="tape" style="right:50px;top:-10px;transform:rotate(5deg)"></span>
+    <h2>Projects</h2>
+
+    <article class="case">
+      <div class="note">
+        <small>PROJECT</small><div class="hw">Myaarchive</div>
+        <small>TYPE</small><div class="hw">Desktop app, solo build</div>
+        <small>STACK</small><div class="hw">Electron, Turso/libSQL, Cloudflare R2, vis-network</div>
+        <small>YEAR</small><div class="hw">2026</div>
+      </div>
+      <div>
+        <h3>Myaarchive: personal reading library</h3>
+        <p>I researched, designed, and built this full-stack desktop app on my own over two months, learning through trial and error. It's open source on GitHub and used by a small group of friends. I'm now developing a companion mobile app.</p>
+        <!-- Replace the link below with the direct repo URL, e.g. https://github.com/zy-anne/myaarchive -->
+        <a class="btn" href="https://github.com/zy-anne">View on GitHub</a>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="note">
+        <small>COMPANY</small><div class="hw">Advanced Computing Solutions, Inc.</div>
+        <small>ROLE</small><div class="hw">IT Intern</div>
+        <small>TOOLS</small><div class="hw">Google Sites, AppSheet, Sheets</div>
+        <small>YEAR</small><div class="hw">2026</div>
+      </div>
+      <div>
+        <h3>Company dashboard and CRM tool</h3>
+        <p>I evaluated platform options, then designed and shipped a company-wide Google Sites dashboard within one week. I also built a CRM automation tool in AppSheet for the sales team and was the main technical contact between IT and four of the company's six employees.</p>
+        <div class="metrics">
+          <div><small>DEPARTMENTS</small><strong>4</strong></div>
+          <div><small>TO SHIP DASHBOARD</small><strong>1 week</strong></div>
+          <div><small>CLIENT RECORDS MIGRATED</small><strong>Dozens</strong></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="note">
+        <small>PROJECT</small><div class="hw">E-TechMart</div>
+        <small>TYPE</small><div class="hw">Data pipeline and ML</div>
+        <small>STACK</small><div class="hw">PySpark, Hadoop, Hive, MLlib</div>
+        <small>YEAR</small><div class="hw">2024</div>
+      </div>
+      <div>
+        <h3>Data pipeline and ML analysis</h3>
+        <p>I designed a scalable pipeline with Hadoop, PySpark, and Apache Hive, then cleaned the data, generated summary statistics, and visualized pricing trends with Seaborn and Matplotlib. I finished by building and evaluating a linear regression model in Spark MLlib using R-squared and mean squared error.</p>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="note">
+        <small>PROJECT</small><div class="hw">Capstone proposal analysis</div>
+        <small>TYPE</small><div class="hw">NLP and dashboard</div>
+        <small>STACK</small><div class="hw">NLP, data visualization</div>
+        <small>YEAR</small><div class="hw">2025</div>
+      </div>
+      <div>
+        <h3>Topic-trend and similarity analysis</h3>
+        <p>I built an NLP system that measures how similar research proposals are, clusters related studies, and shows topic trends over time in an interactive dashboard.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="sheet contact" id="contact">
+    <span class="star" style="left:9%;top:34%">★</span>
+    <span class="star" style="right:10%;top:20%">★</span>
+    <h2>Let's Work Together</h2>
+    <p>Thanks for stopping by. I'm open to data analytics roles and relocation. If you have a messy dataset, a reporting problem, or a tool that needs building, I'd love to hear about it.</p>
+    <div class="links">
+      <a class="btn" href="mailto:lynzyanne0602@gmail.com">Email me</a>
+      <a class="btn" href="https://github.com/zy-anne" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/lynzy-anne-revilla-379869292" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="sign">LYNZY ANNE REVILLA | LYNZYANNE0602@GMAIL.COM</div>
+  </section>
+
+  <footer>&copy; 2026 Lynzy Anne Revilla</footer>
+</main>
+
+<script>
+(function(){
+  var links=document.querySelectorAll('.tabs a'),secs=[].map.call(links,function(a){return document.querySelector(a.getAttribute('href'))});
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}
+  })},{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(function(s){io.observe(s)});
+})();
+</script>
+</body>
+</html>
