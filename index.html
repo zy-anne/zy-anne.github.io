@@ -64,7 +64,7 @@ a{color:inherit}
 /* ledger */
 .ledger{margin:36px auto 0;border:1px solid var(--line);background:#efece3;box-shadow:0 4px 10px rgba(0,0,0,.1);transform:rotate(.6deg)}
 .ledger .hd{background:#2d2c2a;color:#f7f5f0;text-align:center;font:600 13px var(--sans);padding:8px}
-.nums{display:grid;grid-template-columns:repeat(4,1fr)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr)}
 .nums div{padding:12px 10px 16px;text-align:center;border-left:1px solid var(--line)}
 .nums div:first-child{border-left:0}
 .nums small,.ledger .row small{font:10px var(--mono);color:var(--soft);display:block}
@@ -80,10 +80,21 @@ a{color:inherit}
 .note .hw{font-size:1.45rem;border-bottom:1px solid var(--line);padding-bottom:4px}
 .case h3{font-size:2rem;margin-bottom:10px}
 .metrics{display:flex;margin:6px 0 4px;border:1px solid var(--line);background:#efece3}
-.metrics div{flex:1;padding:8px 12px;border-left:1px solid var(--line)}
+.metrics div{flex:1;padding:8px 12px;border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
 .metrics div:first-child{border-left:0}
 .metrics small{font:10px var(--mono);color:var(--soft);display:block}
 .metrics strong{font:400 1.8rem/1.2 var(--serif)}
+.shots{grid-column:1/-1;display:flex;gap:20px;overflow-x:auto;padding:14px 8px 20px;scroll-snap-type:x mandatory}
+.shots figure{margin:0;flex:0 0 270px;scroll-snap-align:start;background:#fff;padding:8px 8px 6px;box-shadow:0 4px 10px rgba(0,0,0,.2);transform:rotate(-1.5deg)}
+.shots figure:nth-child(even){transform:rotate(1.5deg)}
+.shots button{all:unset;display:block;width:100%;cursor:zoom-in}
+.shots button:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.shots img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#ddd}
+.shots figcaption{font:600 1.25rem var(--hand);color:var(--red);text-align:center;padding-top:4px}
+dialog{border:0;padding:0;background:transparent;max-width:94vw;max-height:92vh;overflow:visible}
+dialog::backdrop{background:rgba(0,0,0,.78)}
+dialog img{display:block;max-width:94vw;max-height:88vh;border:8px solid #fff;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+dialog button{display:block;margin:10px auto 0;font:600 13px var(--sans);padding:5px 18px;border-radius:99px;border:0;background:var(--paper);cursor:pointer}
 .btn{display:inline-block;margin-top:6px;border:1px solid var(--ink);border-radius:99px;padding:5px 18px;font:600 13px var(--sans);text-decoration:none}
 .btn:hover{background:var(--ink);color:var(--paper)}
 
@@ -105,9 +116,7 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
   .about,.case{grid-template-columns:1fr}
   .polaroid{margin:0 auto}
   .about h2{text-align:center}
-  .nums{grid-template-columns:repeat(2,1fr)}
-  .nums div:nth-child(3){border-left:0}
-  .nums div:nth-child(n+3){border-top:1px solid var(--line)}
+  .nums strong{font-size:2.1rem}
   .label div{grid-template-columns:84px 1fr}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -147,7 +156,7 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
         <p>I'm a Computer Engineering graduate specializing in data analytics. I research, build, clean, and visualize data, and I like taking on tools that real teams end up using.</p>
         <p>I work in Python, SQL, Power BI, and Excel, and I'm finishing the IBM Data Analyst Professional Certificate. I'm happiest when a problem is vague and I get to turn it into something that works.</p>
         <ul class="how">
-          <<b>How I work</b>
+          <b>How I work</b>
           <li>Own projects from research to delivery</li>
           <li>Turn business needs into technical specs</li>
           <li>Keep data accurate when moving or cleaning it</li>
@@ -174,15 +183,21 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
     <article class="case">
       <div class="note">
         <small>PROJECT</small><div class="hw">Myaarchive</div>
-        <small>TYPE</small><div class="hw">Desktop app, solo build</div>
+        <small>TYPE</small><div class="hw">Desktop app</div>
         <small>STACK</small><div class="hw">Electron, Turso/libSQL, Cloudflare R2, vis-network</div>
         <small>YEAR</small><div class="hw">2026</div>
       </div>
       <div>
         <h3>Myaarchive: personal reading library</h3>
         <p>I researched, designed, and built this full-stack desktop app on my own over two months, learning through trial and error. It's open source on GitHub and used by a small group of friends. I'm now developing a companion mobile app.</p>
-        <!-- Replace the link below with the direct repo URL, e.g. https://github.com/zy-anne/myaarchive -->
-        <a class="btn" href="https://github.com/zy-anne">View on GitHub</a>
+        <a class="btn" href="https://github.com/zy-anne/Myaarchive">View on GitHub</a>
+      </div>
+
+      <div class="shots" aria-label="Myaarchive screenshots">
+        <figure><button type="button"><img src="images/myaarchive-1.jpg" alt="Myaarchive library view" loading="lazy" onerror="this.closest('figure').remove()"></button><figcaption>Library view</figcaption></figure>
+        <figure><button type="button"><img src="images/myaarchive-2.jpg" alt="Myaarchive screenshot 2" loading="lazy" onerror="this.closest('figure').remove()"></button><figcaption>Caption here</figcaption></figure>
+        <figure><button type="button"><img src="images/myaarchive-3.jpg" alt="Myaarchive screenshot 3" loading="lazy" onerror="this.closest('figure').remove()"></button><figcaption>Caption here</figcaption></figure>
+        <figure><button type="button"><img src="images/myaarchive-4.jpg" alt="Myaarchive screenshot 4" loading="lazy" onerror="this.closest('figure').remove()"></button><figcaption>Caption here</figcaption></figure>
       </div>
     </article>
 
@@ -247,7 +262,17 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
   <footer>&copy; 2026 Lynzy Anne Revilla</footer>
 </main>
 
+<dialog id="lb" aria-label="Enlarged screenshot"><img alt=""><button type="button">Close</button></dialog>
+
 <script>
+(function(){
+  var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+  document.addEventListener('click',function(e){
+    var im=e.target.closest('.shots img');
+    if(im){lbi.src=im.src;lbi.alt=im.alt;lb.showModal();return}
+    if(e.target===lb||e.target.closest('#lb button'))lb.close();
+  });
+})();
 (function(){
   var links=document.querySelectorAll('.tabs a'),secs=[].map.call(links,function(a){return document.querySelector(a.getAttribute('href'))});
   if(!('IntersectionObserver' in window))return;
