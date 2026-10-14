@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lynzy Anne Revilla | Portfolio</title>
-<meta name="description" content="Portfolio of Lynzy Anne Revilla, Computer Engineering graduate specializing in data analytics.">
+<title>Lynzy Anne Revilla | Software Developer & Data Analyst</title>
+<meta name="description" content="Portfolio of Lynzy Anne Revilla, Computer Engineering graduate building software and working with data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono&family=Inter:wght@400;600&family=Instrument+Serif&display=swap" rel="stylesheet">
 <style>
 :root{
-  --desk:#e4e1d9; --paper:#f7f5f0; --tab:#ebe8dc; --kraft:#d9c9a6; --kraft-d:#c9b78f;
+  --desk:#e4e1d9; --paper:#f7f5f0; --tab:#ebe8dc; --kraft:#d9c9a6;
   --note:#e9e6da; --ink:#2b2a28; --soft:#5b5852; --red:#b3201f; --line:#8a8677; --tape:rgba(216,201,160,.85);
   --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
   --hand:'Caveat','Segoe Print','Comic Sans MS',cursive;
@@ -28,13 +29,11 @@ p{margin:0 0 14px}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--red);outline-offset:3px}
 
-/* side tabs */
 .tabs{position:fixed;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;z-index:5}
 .tabs a{writing-mode:vertical-rl;font:12px var(--mono);letter-spacing:.14em;text-decoration:none;color:var(--soft);
-  padding:22px 11px;background:var(--tab);border-radius:14px 0 0 14px;box-shadow:-2px 2px 6px rgba(0,0,0,.12)}
+  padding:18px 11px;background:var(--tab);border-radius:14px 0 0 14px;box-shadow:-2px 2px 6px rgba(0,0,0,.12)}
 .tabs a.on{background:var(--paper);color:var(--ink);padding-right:18px;box-shadow:-3px 2px 8px rgba(0,0,0,.18)}
 
-/* cover */
 .cover{padding:10px 0 40px;margin-bottom:34px}
 .cover h1{font-size:clamp(4rem,15vw,8.5rem);text-align:center;letter-spacing:-.02em}
 .chips{display:flex;justify-content:space-between;margin:14px 0 46px}
@@ -47,7 +46,6 @@ a{color:inherit}
 .label small{font:10px var(--mono);color:var(--soft);letter-spacing:.08em}
 .hw{font:600 1.55rem/1.2 var(--hand);color:var(--red)}
 
-/* sheets */
 .sheet{position:relative;background:var(--paper);border-radius:16px;padding:44px 40px 48px;margin-bottom:34px;box-shadow:0 6px 18px rgba(0,0,0,.14)}
 .tape{position:absolute;width:92px;height:26px;background:var(--tape);transform:rotate(-6deg);box-shadow:0 1px 2px rgba(0,0,0,.2)}
 .about{display:grid;grid-template-columns:230px 1fr;gap:34px;align-items:start}
@@ -61,7 +59,6 @@ a{color:inherit}
 .how li::before{content:"✦";position:absolute;left:0;color:var(--red);font-size:.8rem;top:2px}
 .how b{display:block;margin-bottom:6px}
 
-/* ledger */
 .ledger{margin:36px auto 0;border:1px solid var(--line);background:#efece3;box-shadow:0 4px 10px rgba(0,0,0,.1);transform:rotate(.6deg)}
 .ledger .hd{background:#2d2c2a;color:#f7f5f0;text-align:center;font:600 13px var(--sans);padding:8px}
 .nums{display:grid;grid-template-columns:repeat(3,1fr)}
@@ -71,14 +68,25 @@ a{color:inherit}
 .nums strong{font:400 2.7rem/1.1 var(--serif)}
 .ledger .row{border-top:1px solid var(--line);padding:8px 14px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
 
+/* skills */
+.intro{text-align:center;max-width:540px;margin:-10px auto 28px;color:var(--soft)}
+.skillgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.skillcard{background:var(--note);padding:20px 20px 22px;box-shadow:0 2px 6px rgba(0,0,0,.1);transform:rotate(-.6deg)}
+.skillcard:nth-child(even){transform:rotate(.7deg)}
+.skillcard .hw{font-size:1.5rem;border-bottom:1px solid var(--line);padding-bottom:4px;margin-bottom:12px;display:block}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid var(--ink);border-radius:99px;padding:2px 14px;font:600 12px var(--sans);background:var(--paper)}
+
 /* projects */
 .case{display:grid;grid-template-columns:240px 1fr;gap:30px;align-items:start;padding:28px 0;border-top:1px solid #d9d5c8}
-.case:first-of-type{border-top:0;padding-top:0}
+.case.first{border-top:0;padding-top:0}
+.case[hidden]{display:none}
 .note{background:var(--note);padding:22px 20px 24px;clip-path:polygon(0 2%,6% 0,14% 2%,24% 0,36% 2%,48% 0,60% 2%,72% 0,86% 2%,100% 0,100% 100%,0 100%);box-shadow:0 2px 6px rgba(0,0,0,.1)}
 .note small{font:10px var(--mono);color:var(--soft);letter-spacing:.08em;display:block;margin-top:10px}
 .note small:first-child{margin-top:0}
 .note .hw{font-size:1.45rem;border-bottom:1px solid var(--line);padding-bottom:4px}
 .case h3{font-size:2rem;margin-bottom:10px}
+.case .pills{margin:4px 0 14px}
 .metrics{display:flex;margin:6px 0 4px;border:1px solid var(--line);background:#efece3}
 .metrics div{flex:1;padding:8px 12px;border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
 .metrics div:first-child{border-left:0}
@@ -98,6 +106,19 @@ dialog button{display:block;margin:10px auto 0;font:600 13px var(--sans);padding
 .btn{display:inline-block;margin-top:6px;border:1px solid var(--ink);border-radius:99px;padding:5px 18px;font:600 13px var(--sans);text-decoration:none}
 .btn:hover{background:var(--ink);color:var(--paper)}
 
+/* experience */
+.job{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:24px 0;border-top:1px solid #d9d5c8}
+.job:first-of-type{border-top:0;padding-top:0}
+.job .when{font:11px var(--mono);letter-spacing:.08em;color:var(--soft)}
+.job .when .hw{display:block;font-size:1.3rem;letter-spacing:0;margin-top:4px}
+.job h3{font-size:1.8rem;margin-bottom:2px}
+.job .org{font:600 13px var(--sans);color:var(--soft);margin-bottom:10px}
+.job ul{margin:0;padding:0;list-style:none}
+.job li{padding-left:22px;position:relative;margin-bottom:6px}
+.job li::before{content:"✦";position:absolute;left:0;color:var(--red);font-size:.8rem;top:2px}
+.edu{margin-top:30px}
+.edu .ledger{margin-top:0}
+
 /* contact */
 .contact{text-align:center}
 .contact h2{font-size:clamp(2.8rem,8vw,4.6rem);margin-bottom:22px}
@@ -109,16 +130,25 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
 
 @media (max-width:800px){
   main{padding:64px 14px 40px}
-  .tabs{top:0;right:0;left:0;transform:none;flex-direction:row;justify-content:center;gap:4px;background:var(--desk);padding:8px 8px 0}
-  .tabs a{writing-mode:horizontal-tb;padding:9px 16px;border-radius:12px 12px 0 0;box-shadow:none}
-  .tabs a.on{padding:9px 16px}
+  .tabs{top:0;right:0;left:0;transform:none;flex-direction:row;justify-content:center;gap:3px;background:var(--desk);padding:8px 6px 0}
+  .tabs a{writing-mode:horizontal-tb;padding:9px 9px;font-size:10px;letter-spacing:.06em;border-radius:12px 12px 0 0;box-shadow:none}
+  .tabs a.on{padding:9px 9px}
   .sheet{padding:34px 20px 36px}
-  .about,.case{grid-template-columns:1fr}
+  .about,.case,.job,.skillgrid{grid-template-columns:1fr}
+  .job{gap:8px}
   .polaroid{margin:0 auto}
   .about h2{text-align:center}
   .nums strong{font-size:2.1rem}
   .label div{grid-template-columns:84px 1fr}
 }
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:-8px 0 26px}
+.filters button{font:12px var(--mono);letter-spacing:.06em;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:6px 16px;border-radius:99px;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+.r{visibility:hidden}
+.typing .t::after{content:"";display:inline-block;width:2px;height:.85em;background:currentColor;margin-left:2px;vertical-align:-.05em;animation:blink .7s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -126,7 +156,9 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
 
 <nav class="tabs" aria-label="Sections">
   <a href="#about" class="on">ABOUT</a>
+  <a href="#skills">SKILLS</a>
   <a href="#projects">PROJECTS</a>
+  <a href="#experience">EXPERIENCE</a>
   <a href="#contact">CONTACT</a>
 </nav>
 
@@ -137,7 +169,8 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
     <div class="folder">
       <div class="label">
         <div><small>NAME</small><span class="hw">Lynzy Anne Revilla</span></div>
-        <div><small>OCCUPATION</small><span class="hw">Computer Engineer — Data Analytics | Software Development</span></div>
+        <div><small>OCCUPATION</small><span class="hw">Software Developer</span></div>
+        <div><small></small><span class="hw">Data Analyst</span></div>
         <div><small>CONTACT</small><span class="hw">lynzyrevilla@gmail.com</span></div>
         <div><small>BASED IN</small><span class="hw">Batangas, Philippines</span></div>
       </div>
@@ -153,11 +186,11 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
       </div>
       <div>
         <h2>Hi, I'm Lynzy!</h2>
-        <p>I'm a Computer Engineering graduate specializing in data analytics. I research, build, clean, and visualize data, and I like taking on tools that real teams end up using.</p>
-        <p>I work in Python, SQL, Power BI, and Excel, and I'm finishing the IBM Data Analyst Professional Certificate. I'm happiest when a problem is vague and I get to turn it into something that works.</p>
+        <p>I'm a Computer Engineering graduate who builds software and works with data. I like turning a vague problem into something people actually use, whether that's a desktop app, an internal tool, or a dashboard.</p>
+        <p>I work in JavaScript, Python, and SQL, and I've developed a full-stack desktop app on my own and internal tools for a real company. I also specialized in data analytics and I'm finishing the IBM Data Analyst Professional Certificate.</p>
         <ul class="how">
           <b>How I work</b>
-          <li>Own projects from research to delivery</li>
+          <li>Complete projects from research to delivery</li>
           <li>Turn business needs into technical specs</li>
           <li>Keep data accurate when moving or cleaning it</li>
           <li>Ship working tools, then plan the next version</li>
@@ -169,58 +202,83 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
       <div class="hd">Highlights</div>
       <div class="nums">
         <div><small>DEPARTMENTS USING MY DASHBOARD</small><strong>4</strong></div>
+        <div><small>WEEK TO SHIP THE DASHBOARD</small><strong>1</strong></div>
         <div><small>MONTHS TO BUILD MYAARCHIVE</small><strong>2</strong></div>
-        <div><small>PROJECTS IN PROGRESS</small><strong>3</strong></div>
       </div>
-      <div class="row"><small>TOOLS</small><span class="hw">Python, SQL, Power BI, Excel, Pandas</span></div>
+      <div class="row"><small>FOCUS</small><span class="hw">Software development, internal tools, data</span></div>
       <div class="row"><small>EDUCATION</small><span class="hw">BS Computer Engineering (Data Analytics), Batangas State University, 2026</span></div>
+    </div>
+  </section>
+
+  <section class="sheet" id="skills">
+    <span class="tape" style="left:60px;top:-10px;transform:rotate(4deg)"></span>
+    <h2>Skills</h2>
+    <p class="intro">What I've actually used in projects and at work.</p>
+    <div class="skillgrid">
+      <div class="skillcard"><span class="hw">Languages</span>
+        <div class="pills"><span class="pill">JavaScript</span><span class="pill">Python</span><span class="pill">SQL</span></div></div>
+      <div class="skillcard"><span class="hw">App development</span>
+        <div class="pills"><span class="pill">Electron</span><span class="pill">Node.js</span><span class="pill">Full-stack design</span><span class="pill">Open source</span></div></div>
+      <div class="skillcard"><span class="hw">Data &amp; cloud</span>
+        <div class="pills"><span class="pill">Turso / libSQL</span><span class="pill">Cloudflare R2</span><span class="pill">Hadoop</span><span class="pill">Hive</span><span class="pill">PySpark</span></div></div>
+      <div class="skillcard"><span class="hw">Analytics &amp; ML</span>
+        <div class="pills"><span class="pill">Pandas</span><span class="pill">Spark MLlib</span><span class="pill">NLP</span><span class="pill">Seaborn</span><span class="pill">Matplotlib</span></div></div>
+      <div class="skillcard"><span class="hw">BI &amp; no-code</span>
+        <div class="pills"><span class="pill">Power BI</span><span class="pill">Excel</span><span class="pill">Google Sites</span><span class="pill">AppSheet</span><span class="pill">Google Sheets</span></div></div>
+      <div class="skillcard"><span class="hw">Tools &amp; workflow</span>
+        <div class="pills"><span class="pill">Git &amp; GitHub</span><span class="pill">Requirements gathering</span><span class="pill">Data migration</span></div></div>
     </div>
   </section>
 
   <section class="sheet" id="projects">
     <span class="tape" style="right:50px;top:-10px;transform:rotate(5deg)"></span>
     <h2>Projects</h2>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="apps" aria-pressed="false">Software &amp; tools</button>
+      <button type="button" data-f="data" aria-pressed="false">Data &amp; ML</button>
+    </div>
 
-    <article class="case">
+    <article class="case first" data-tags="apps">
       <div class="note">
         <small>PROJECT</small><div class="hw">Myaarchive</div>
-        <small>TYPE</small><div class="hw">Desktop app</div>
+        <small>TYPE</small><div class="hw">Desktop app, solo build</div>
         <small>STACK</small><div class="hw">Electron, Turso/libSQL, Cloudflare R2, vis-network</div>
         <small>YEAR</small><div class="hw">2026</div>
       </div>
       <div>
         <h3>Myaarchive: personal reading library</h3>
-        <p>I researched, designed, and built this full-stack desktop app on my own over two months, learning through trial and error. It's open source on GitHub and used by a small group of friends. I'm now developing a companion mobile app.</p>
+        <p>I researched, designed, and built this full-stack desktop app on my own over two months, learning through trial and error. It's open source on GitHub, so anyone can self-host it with their own Turso and Cloudflare R2 credentials, and a small group of friends uses it. I'm now developing a companion mobile app.</p>
+        <div class="pills"><span class="pill">Full-stack</span><span class="pill">Cloud storage</span><span class="pill">Open source</span><span class="pill">Mobile app in progress</span></div>
         <a class="btn" href="https://github.com/zy-anne/Myaarchive">View on GitHub</a>
       </div>
-
       <div class="shots" aria-label="Myaarchive screenshots">
         <figure><button type="button"><img src="images/myaarchive-1.jpg" alt="Myaarchive library view" loading="lazy" onerror="this.closest('figure').remove()"></button><figcaption>Library view</figcaption></figure>
-        <figure><button type="button"><img src="images/myaarchive-2.jpg" alt="Myaarchive sign in screen" loading="lazy" onerror="this.closest('figure').remove()"></button><figcaption>Sign In View</figcaption></figure>
-        <figure><button type="button"><img src="images/myaarchive-3.jpg" alt="Myaarchive sign up screen" loading="lazy" onerror="this.closest('figure').remove()"></button><figcaption>Sign Up View</figcaption></figure>
+        <figure><button type="button"><img src="images/myaarchive-2.jpg" alt="Myaarchive sign in view" loading="lazy" onerror="this.closest('figure').remove()"></button><figcaption>Sign In View</figcaption></figure>
+        <figure><button type="button"><img src="images/myaarchive-3.jpg" alt="Myaarchive sign up view" loading="lazy" onerror="this.closest('figure').remove()"></button><figcaption>Sign Up View</figcaption></figure>
         <figure><button type="button"><img src="images/myaarchive-4.jpg" alt="Myaarchive screenshot 4" loading="lazy" onerror="this.closest('figure').remove()"></button><figcaption>Caption here</figcaption></figure>
       </div>
     </article>
 
-    <article class="case">
+    <article class="case" data-tags="apps">
       <div class="note">
         <small>COMPANY</small><div class="hw">Advanced Computing Solutions, Inc.</div>
         <small>ROLE</small><div class="hw">IT Intern</div>
-        <small>TOOLS</small><div class="hw">Google Sites, Google AppSheet, Google Sheets</div>
+        <small>TOOLS</small><div class="hw">Google Sites, AppSheet, Sheets</div>
         <small>YEAR</small><div class="hw">2026</div>
       </div>
       <div>
         <h3>Company dashboard and CRM tool</h3>
-        <p>I evaluated platform options, then designed and shipped a company-wide Google Sites dashboard within one week. I also built a CRM automation tool in AppSheet for the sales team alone.</p>
+        <p>I evaluated platform options, then designed and shipped a company-wide Google Sites dashboard within one week. I also built a CRM automation tool in AppSheet for the sales team and was the main technical contact between IT and four of the company's six employees.</p>
         <div class="metrics">
-          <div><small>DEPARTMENTS</small><strong>3</strong></div>
+          <div><small>DEPARTMENTS</small><strong>4</strong></div>
           <div><small>TO SHIP DASHBOARD</small><strong>1 week</strong></div>
           <div><small>CLIENT RECORDS MIGRATED</small><strong>Dozens</strong></div>
         </div>
       </div>
     </article>
 
-    <article class="case">
+    <article class="case" data-tags="apps data">
       <div class="note">
         <small>PROJECT</small><div class="hw">Capstone proposal analysis</div>
         <small>TYPE</small><div class="hw">NLP and dashboard</div>
@@ -233,7 +291,7 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
       </div>
     </article>
 
-    <article class="case">
+    <article class="case" data-tags="data">
       <div class="note">
         <small>PROJECT</small><div class="hw">E-TechMart</div>
         <small>TYPE</small><div class="hw">Data pipeline and ML</div>
@@ -247,11 +305,62 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
     </article>
   </section>
 
+  <section class="sheet" id="experience">
+    <span class="tape" style="left:50px;top:-10px;transform:rotate(-4deg)"></span>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="when">2026<span class="hw">Internship</span></div>
+      <div>
+        <h3>IT Intern</h3>
+        <div class="org">Advanced Computing Solutions, Inc.</div>
+        <ul>
+          <li>Designed and shipped a company-wide Google Sites dashboard in one week after comparing platform options</li>
+          <li>Built a CRM automation tool in AppSheet for the sales team</li>
+          <li>Migrated dozens of client records from a legacy Google Sheets CRM into the new CRM</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">College<span class="hw">Leadership</span></div>
+      <div>
+        <h3>Business Manager I</h3>
+        <div class="org">CURSOR, Batangas State University</div>
+        <ul>
+          <li>Led merch production end to end: design approval, university paperwork, manufacturer sourcing, and distribution</li>
+          <li>Handled 514 shirt orders across 3 batches and 62 merch orders across 5 options</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">College<span class="hw">Leadership</span></div>
+      <div>
+        <h3>2nd Year Representative</h3>
+        <div class="org">CURSOR, Batangas State University</div>
+        <ul>
+          <li>Compiled and maintained a roster of 204 students across 5 blocks</li>
+          <li>Acted as the main liaison between my year level and the org president</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="edu">
+      <div class="ledger">
+        <div class="hd">Education &amp; Certificates</div>
+        <div class="row"><small>DEGREE</small><span class="hw">BS Computer Engineering, Batangas State University (2022-2026)</span></div>
+        <div class="row"><small>HONORS</small><span class="hw">Dean's List, 2022-2023</span></div>
+        <div class="row"><small>IN PROGRESS</small><span class="hw">IBM Data Analyst Professional Certificate</span></div>
+      </div>
+    </div>
+  </section>
+
   <section class="sheet contact" id="contact">
     <span class="star" style="left:9%;top:34%">★</span>
     <span class="star" style="right:10%;top:20%">★</span>
     <h2>Let's Work Together</h2>
-    <p>Thanks for stopping by. I'm open to data analytics roles and relocation. If you have a messy dataset, a reporting problem, or a tool that needs building, I'd love to hear about it.</p>
+    <p>Thanks for stopping by. I'm open to software development and data roles, and to relocation. If you have a tool that needs building, a messy dataset, or a reporting problem, I'd love to hear about it.</p>
     <div class="links">
       <a class="btn" href="mailto:lynzyrevilla@gmail.com">Email me</a>
       <a class="btn" href="https://github.com/zy-anne" target="_blank" rel="noopener">GitHub</a>
@@ -281,6 +390,52 @@ footer{text-align:center;font:12px var(--mono);color:var(--soft)}
     if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}
   })},{rootMargin:'-40% 0px -55% 0px'});
   secs.forEach(function(s){io.observe(s)});
+})();
+(function(){
+  var btns=document.querySelectorAll('.filters button'),cases=document.querySelectorAll('.case');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.dataset.f,first=true;
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    cases.forEach(function(c){
+      var show=f==='all'||c.dataset.tags.split(' ').indexOf(f)>-1;
+      c.hidden=!show;c.classList.toggle('first',show&&first);if(show)first=false;
+    });
+  })});
+})();
+(function(){
+  var root=document.documentElement;
+  if(!root.classList.contains('js'))return;
+  if(!('IntersectionObserver' in window)){root.classList.remove('js');return}
+  try{
+    var rio=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}
+    })},{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.sheet,.case,.job').forEach(function(el){el.classList.add('rv');rio.observe(el)});
+
+    function prep(el){
+      var txt=el.textContent.trim(),t=document.createElement('span'),r=document.createElement('span');
+      el.setAttribute('aria-label',txt);el.textContent='';
+      t.className='t';r.className='r';t.setAttribute('aria-hidden','true');r.setAttribute('aria-hidden','true');
+      r.textContent=txt;el.append(t,r);el._t=t;el._r=r;el._txt=txt;
+    }
+    function typeIn(el){
+      var box=el.closest('.label,.note,.ledger'),i=0;
+      if(box){i=box._n||0;box._n=i+1}
+      var speed=el.tagName==='H2'?60:38,gap=box&&box.classList.contains('label')?800:450,txt=el._txt,n=0;
+      setTimeout(function(){
+        el.classList.add('typing');
+        (function step(){
+          n++;el._t.textContent=txt.slice(0,n);el._r.textContent=txt.slice(n);
+          if(n<txt.length)setTimeout(step,speed);
+          else setTimeout(function(){el.classList.remove('typing')},700);
+        })();
+      },300+i*gap);
+    }
+    var tio=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){tio.unobserve(e.target);typeIn(e.target)}
+    })},{threshold:.9});
+    document.querySelectorAll('.label .hw,.note .hw,.ledger .hw,.polaroid .hw,.skillcard .hw,.sheet h2').forEach(function(el){prep(el);tio.observe(el)});
+  }catch(err){root.classList.remove('js')}
 })();
 </script>
 </body>
